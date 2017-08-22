@@ -1,10 +1,9 @@
 # ab-web-addon
-A simple, but sleek, web addon for AdvancedBan.
-- You can find the example [here](https://mathhulk.info/ab-web-addon).
+A simple, but sleeker, web addon for AdvancedBan.
+- You can find the example [here](https://www.sidengel.com/dev/ab-web-addon/).
 
 ## Main Features
 - Host it on your own web server
-- Easily change to themes from Bootswatch
 - Easy to edit all words and phrases
 - Able to search punishments by user
 - Able to search punishments by type
@@ -99,7 +98,7 @@ Once the database credentials, table, and base have been filled out, ab-web-addo
 If you wish to change the favicon, replace the `icon.png` file located in `data/img/`.
 
 ## Credit and Problems
-ab-web-addon was made using Bootswatch themes for Bootstrap.
+This rendition of ab-web-addon was made using Materialize.
 
 AdvancedBan is maintained by Leoko. ([SpigotMC](https://www.spigotmc.org/resources/advancedban.8695/))
 
