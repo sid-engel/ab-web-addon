@@ -169,7 +169,5 @@ require("database.php");
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-materialize/0.2.2/angular-materialize.js"></script>
 
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/js/materialize.min.js"></script>
-
-		<script src="./data/js/theme.js"></script>
 	</body>
 </html>

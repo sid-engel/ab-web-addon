@@ -45,7 +45,7 @@ require("../database.php");
 		</nav>
 		<div class="container">
 			<div class="jumbotron">
-				<h1><br><?php echo $lang['title']; ?></h1> 
+				<h1><br><?php echo $lang['title']; ?></h1>
 				<p><?php echo $lang['description']; ?></p>
 				<p>
 					<?php

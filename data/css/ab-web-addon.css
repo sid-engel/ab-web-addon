@@ -1,3 +1,11 @@
 .table-wrapper {
 	overflow-x: auto;
 }
+
+.header {
+	background-image: url("./header.jpg");
+	background-position: center;
+	padding: 1.9%;
+	color: white;
+	text-align: center;
+}
