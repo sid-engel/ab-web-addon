@@ -6,6 +6,15 @@ ob_start(); //Static content loads first.
 $con = mysqli_connect("localhost","root","","ab-web-addon-master");
 //Enter your MYSQL details here.
 
+//Basic information.
+$info = array(
+	'table'=>'Punishments', //The table of your MYSQL database for which punishments are saved. (string)
+	'history'=>'PunishmentHistory', //The table of your MYSQL database for which punishment history is saved. (string)
+	'skulls'=>true, //Whether skulls should be shown next to users. This does not include the body render shown on /user/, which is always shown. (boolean)
+	'compact'=>false, //Whether temporary punishments and punishments should be shown together. For example, temporary mutes and mutes would fall under one category of "mutes". (boolean)
+	'ip-bans'=>true, //Whether punishments that reveal the IP address of players will be shown. (boolean)
+	);
+
 //Change the language.
 $lang = array(
 	//Information

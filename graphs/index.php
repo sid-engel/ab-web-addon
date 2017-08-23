@@ -44,7 +44,7 @@ require("../database.php");
 						if($type == 'all') {
 							$result = mysqli_query($con, "SELECT * FROM `".$info['history']."`".($info['ip-bans'] == false ? " WHERE punishmentType!='IP_BAN'" : ""));
 						}
-						echo '<a href="?type='.$type.'" class="waves-effect waves-light btn grey darken-4" style="margin: 3px;">'.strtoupper($lang[$type.($type != 'all' ? 's' : '')]).' <span class="">- '.mysqli_num_rows($result).'</span></a>';
+						echo '<a href="/?type='.$type.'" class="waves-effect waves-light btn grey darken-4" style="margin: 3px;">'.strtoupper($lang[$type.($type != 'all' ? 's' : '')]).' <span class="">- '.mysqli_num_rows($result).'</span></a>';
 					}
 					?>
 				</p>
@@ -79,7 +79,7 @@ require("../database.php");
 
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/js/materialize.min.js"></script>
 
-		<script type="text/javascript" src="../data/js/chart.bundle.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.js"></script>
 		<script>
 		var myChart = new Chart($("#chart"), {
 			type: "line",
