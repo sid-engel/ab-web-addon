@@ -16,7 +16,7 @@ require("../database.php");
 		<div class="navbar-fixed">
 		<nav class="grey darken-4">
 		<div class="nav-wrapper container">
-				<a href="#!" class="brand-logo left"><?php echo $lang['title']; ?></a>
+				<a href="/" class="brand-logo left"><?php echo $lang['title']; ?></a>
 				<ul class="right hide-on-med-and-down">
 						<li><a href="/"><?php echo $lang['punishments']; ?></a></li>
 				    <li class="active"><a href="#"><?php echo $lang['graphs']; ?></a></li>

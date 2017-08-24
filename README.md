@@ -1,5 +1,5 @@
 # ab-web-addon
-A simple, but sleeker, web addon for AdvancedBan.
+A simple, but sleeker, web addon for AdvancedBan made with Materialize
 - You can find the example [here](https://www.sidengel.com/dev/ab-web-addon/).
 
 ## Main Features
@@ -36,7 +36,7 @@ $lang = array(
 	//Information
 	'title'=>'AdvancedBan Web Addon',
 	'description'=>'A simple, but sleek, web addon for AdvancedBan.',
-	
+
 	//General
 	'punishments'=>'Punishments',
 	'credits'=>'Credits',
@@ -47,17 +47,17 @@ $lang = array(
 	'not_banned'=>'Not Banned',
 	'inactive'=>'Inactive',
 	'active'=>'Active',
-	
+
 	//Graphs
 	'graphs'=>'Graphs',
 	'graph_title'=>'7 Days of Punishments',
-	
+
 	//Pages
 	'first'=>'First',
 	'previous'=>'Previous',
 	'next'=>'Next',
 	'last'=>'Last',
-	
+
 	//List
 	'username'=>'Username',
 	'reason'=>'Reason',
@@ -66,7 +66,7 @@ $lang = array(
 	'end'=>'End',
 	'type'=>'Type',
 	'status'=>'Status',
-	
+
 	//Punishment
 	'ban'=>'Ban',
 	'temp_ban'=>'Temp. Ban',
@@ -76,7 +76,7 @@ $lang = array(
 	'warning'=>'Warning',
 	'temp_warning'=>'Temp. Warning',
 	'kick'=>'Kick',
-	
+
 	//Punishments
 	'all'=>'All',
 	'bans'=>'Bans',
@@ -87,7 +87,7 @@ $lang = array(
 	'warnings'=>'Warnings',
 	'temp_warnings'=>'Temp. Warnings',
 	'kicks'=>'Kicks',
-	
+
 	//Errors
 	'error_no_punishments'=>'No punishments could be listed on this page.',
 	'error_not_evaluated'=>'N/A',
@@ -101,4 +101,3 @@ If you wish to change the favicon, replace the `icon.png` file located in `data/
 This rendition of ab-web-addon was made using Materialize.
 
 AdvancedBan is maintained by Leoko. ([SpigotMC](https://www.spigotmc.org/resources/advancedban.8695/))
-
