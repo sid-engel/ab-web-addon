@@ -1,5 +1,4 @@
 <?php
-
 /*
  *	ERRORS
  */
@@ -8,18 +7,17 @@ error_reporting(0);
 /*
  *	MYSQL CONNECTION (host, user, password, database)
  */
+$con = mysqli_connect("localhost", "root", "", "ab-web-addon-master");
 if(mysqli_connect_errno()) {
 	die('Failed to connect to database: '.mysqli_connect_error);
 }
-
 /*
  *	PAGINATION
  */
 $page = array('max'=>10, 'min'=>0, 'number'=>1, 'posts'=>0, 'count'=>0);
 if(isset($_GET['p']) && is_numeric($_GET['p'])) {
-	$page = array('max'=>$_GET['p']*10,'min'=>($_GET['p'] - 1)*10,'number'=>$_GET['p'],'posts'=>0,'count'=>0); 
+	$page = array('max'=>$_GET['p']*10,'min'=>($_GET['p'] - 1)*10,'number'=>$_GET['p'],'posts'=>0,'count'=>0);
 }
-
 /*
  *	CONFIGURATION
  */
@@ -32,7 +30,6 @@ if($info['ip-bans'] == true) {
 if($info['compact'] == true) {
 	$types = array('all','ban','mute','warning','kick');
 }
-
 /*
  *	DATE AND TIME
  */
@@ -43,7 +40,6 @@ if(!isset($_SESSION['time_zone'])) {
 		$_SESSION['time_zone'] = $tz_api['time_zone'];
 	}
 }
-
 /*
  *	FUNCTIONS
  */

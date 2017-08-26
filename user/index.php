@@ -37,7 +37,7 @@ if(isset($_GET['user'])) {
 			<div class="collapse navbar-collapse" id="navbar">
 				<ul class="nav navbar-nav">
 					<li class="active"><a href="../"><?php echo $lang['punishments']; ?></a></li>
-					<li><a href="../graphs/"><?php echo $lang['graphs']; ?></a></li>
+					<li><a href="/graphs/"><?php echo $lang['graphs']; ?></a></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
 					<li class="dropdown">
@@ -54,7 +54,7 @@ if(isset($_GET['user'])) {
 		</nav>
 		<div class="container">
 			<div class="jumbotron">
-				<h1><br><?php echo $lang['title']; ?></h1> 
+				<h1><br><?php echo $lang['title']; ?></h1>
 				<p><?php echo $lang['description']; ?></p>
 				<p>
 					<?php
@@ -72,9 +72,7 @@ if(isset($_GET['user'])) {
 				<form method="get" action="">
 					<div class="input-group">
 						<input type="text" maxlength="50" name="user" class="form-control" placeholder="<?php echo $lang['search']; ?>">
-						<span class="input-group-btn">
 							<button class="btn btn-default" type="submit"><?php echo $lang['submit']; ?></button>
-						</span>
 					</div>
 				</form>
 			</div>
@@ -99,7 +97,7 @@ if(isset($_GET['user'])) {
 									if(mysqli_num_rows($result) == 0) {
 										echo '<tr><td>'.$lang['error_no_punishments'].'</td><td>---</td><td>---</td><td>---</td><td>---</td></tr>';
 									} else {
-										while($row = mysqli_fetch_array($result)) {			
+										while($row = mysqli_fetch_array($result)) {
 											$end = formatDate("F jS, Y", $row['end'])."<br><span class='badge'>".formatDate("g:i A", $row['end'])."</span>";
 											if($row['end'] == "-1") {
 												$end = $lang['error_not_evaluated'];
@@ -139,7 +137,7 @@ if(isset($_GET['user'])) {
 									} elseif($page['number'] > ($pages['total'] - 8)) {
 										$pages['min'] = $pages['total'] - 8; $pages['max'] = $pages['total'];
 									} else {
-										$pages['min'] = $page['number'] - 4; $pages['max'] = $page['number'] + 4; 
+										$pages['min'] = $page['number'] - 4; $pages['max'] = $page['number'] + 4;
 									}
 									if($pages['max'] > $pages['total']) {
 										$pages['max'] = $pages['total'];

@@ -50,12 +50,10 @@ require("../database.php");
 				</p>
 </div>
 <div class="container">
-	<form method="get" action="user/">
+	<form method="get" action="../user/">
 		<div class="input-group">
 			<input type="text" maxlength="50" name="user" class="form-control" placeholder="<?php echo $lang['search']; ?>">
-			<span class="input-group-btn">
 				<button class="btn btn-default grey darken-4" type="submit"><?php echo $lang['submit']; ?></button>
-			</span>
 		</div>
 	</form>
 </div>
