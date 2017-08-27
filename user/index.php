@@ -16,69 +16,70 @@ if(isset($_GET['user'])) {
 		<title><?php echo $lang['title']; ?> - <?php echo htmlspecialchars($_GET['user']); ?></title>
 		<link rel="shortcut icon" href="../data/img/icon.png" type="image/x-icon">
 		<link rel="icon" href="../data/img/icon.png" type="image/x-icon">
-		<link rel="stylesheet" href="../data/css/bootstrap.min.css">
-		<link rel="stylesheet" href="../data/css/font-awesome.min.css">
 		<link rel="stylesheet" href="../data/css/ab-web-addon.css">
-		<link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/<?php echo $info['theme']; ?>/bootstrap.min.css" rel="stylesheet">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/css/materialize.min.css">
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<link rel="stylesheet" href="../data/css/ab-web-addon.css">
 		<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
 	</head>
 	<body>
-		<nav class="navbar navbar-default navbar-fixed-top">
-		  <div class="container">
-			<div class="navbar-header">
-				<button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#navbar">
-					<span class="sr-only">Toggle navigation</span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-				</button>
-				<a class="navbar-brand" href=""><?php echo $lang['title']; ?></a>
-			</div>
-			<div class="collapse navbar-collapse" id="navbar">
-				<ul class="nav navbar-nav">
-					<li class="active"><a href="../"><?php echo $lang['punishments']; ?></a></li>
-					<li><a href="/graphs/"><?php echo $lang['graphs']; ?></a></li>
+		<div class="navbar-fixed">
+		<nav class="grey darken-4">
+		<div class="nav-wrapper container">
+				<a href="./" class="brand-logo left"><?php echo $lang['title']; ?></a>
+				<ul class="right hide-on-med-and-down">
+						<li><a href="./"><?php echo $lang['punishments']; ?></a></li>
+						<li class="active"><a href="#"><?php echo $lang['graphs']; ?></a></li>
+						<!-- Dropdown Trigger -->
+						<li><a class="dropdown-button" href="#" data-activates="dropdown1" data-beloworigin="true">Credits<i class="material-icons right">arrow_drop_down</i></a></li>
 				</ul>
-				<ul class="nav navbar-nav navbar-right">
-					<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><?php echo $lang['credits']; ?> <span class="caret"></span></a>
-						<ul class="dropdown-menu" role="menu">
-							<li><a href="https://github.com/mathhulk/ab-web-addon">GitHub</a></li>
-							<li><a href="https://www.spigotmc.org/resources/advancedban.8695/">AdvancedBan</a></li>
-							<li><a href="https://theartex.net">mathhulk</a></li>
-						</ul>
-					</li>
-				</ul>
-			</div>
-		  </div>
+		</div>
 		</nav>
+		<!-- Dropdown Structure -->
+		<ul id="dropdown1" class="dropdown-content collection">
+				<li><a href="https://github.com/mathhulk/ab-web-addon">Mathhulk</a></li>
+				<li><a href="https://github.com/sid-engel">Sid Engel</a></li>
+				<li><a href="https://www.spigotmc.org/resources/advancedban.8695/">AdvancedBan</a></li>
+		</ul>
+		</div>
+		<div class="header container-fluid">
+				<h1 style="margin: 0px;"><br><?php echo $lang['title']; ?></h1>
+				<h5 style="padding-bottom: 2%;"><?php echo $lang['description']; ?></h5>
+		</div>
+		<div class="container" style="padding-top: 2%;">
+						<p>
+							<?php
+							foreach($types as $type) {
+								$result = mysqli_query($con, "SELECT * FROM `".$info['history']."` WHERE ".($info['compact'] == true ? "punishmentType LIKE '%".strtoupper($type)."%'" : "punishmentType='".strtoupper($type)."'"));
+								if($type == 'all') {
+									$result = mysqli_query($con, "SELECT * FROM `".$info['history']."`".($info['ip-bans'] == false ? " WHERE punishmentType!='IP_BAN'" : ""));
+								}
+								echo '<a href="/?type='.$type.'" class="waves-effect waves-light btn grey darken-4" style="margin: 3px;">'.strtoupper($lang[$type.($type != 'all' ? 's' : '')]).' <span>- '.mysqli_num_rows($result).'</span></a>';
+							}
+							?>
+						</p>
+		</div>
 		<div class="container">
-			<div class="jumbotron">
-				<h1><br><?php echo $lang['title']; ?></h1>
-				<p><?php echo $lang['description']; ?></p>
-				<p>
-					<?php
-					foreach($types as $type) {
-						$result = mysqli_query($con, "SELECT * FROM `".$info['history']."` WHERE ".($info['compact'] == true ? "punishmentType LIKE '%".strtoupper($type)."%'" : "punishmentType='".strtoupper($type)."'"));
-						if($type == 'all') {
-							$result = mysqli_query($con, "SELECT * FROM `".$info['history']."`".($info['ip-bans'] == false ? " WHERE punishmentType!='IP_BAN'" : ""));
-						}
-						echo '<a href="../?type='.$type.'" class="btn btn-primary btn-md">'.strtoupper($lang[$type.($type != 'all' ? 's' : '')]).' <span class="badge">'.mysqli_num_rows($result).'</span></a>';
-					}
-					?>
-				</p>
+			<form method="get" action="../user/">
+				<div class="input-group">
+					<input type="text" maxlength="50" name="user" class="form-control" placeholder="<?php echo $lang['search']; ?>">
+						<button class="btn btn-default grey darken-4" type="submit"><?php echo $lang['submit']; ?></button>
+				</div>
+			</form>
+		</div>
+		<div class="container">
+			<div class="row card-panel" style="margin-top: 2%;">
+				<div class="col s12 m4 center-align">
+							<img src="https://crafatar.com/renders/body/<?php echo $json['data']['uuid']; ?>" alt="Skin Profile"></img>
+				</div>
+				<div class="col s12 m8">
+					<h3 style="text-align: center;">
+							<?php echo (isset($banned) ? htmlspecialchars($_GET['user']).$banned : htmlspecialchars($_GET['user'])."<small><br><br><span>".$lang['not_banned']."</span></small>"); ?>
+					</h3>
+				</div>
 			</div>
-			<div class="jumbotron">
-				<form method="get" action="">
-					<div class="input-group">
-						<input type="text" maxlength="50" name="user" class="form-control" placeholder="<?php echo $lang['search']; ?>">
-							<button class="btn btn-default" type="submit"><?php echo $lang['submit']; ?></button>
-					</div>
-				</form>
-			</div>
-			<div class="jumbotron">
-				<div class="row">
-					<div class="col-md-8 col-sm-12">
+		</div>
+			<div class="container" style="padding-top: 1%;">
 						<div class="table-wrapper">
 							<table class="table table-striped table-hover">
 								<thead>
@@ -98,7 +99,7 @@ if(isset($_GET['user'])) {
 										echo '<tr><td>'.$lang['error_no_punishments'].'</td><td>---</td><td>---</td><td>---</td><td>---</td></tr>';
 									} else {
 										while($row = mysqli_fetch_array($result)) {
-											$end = formatDate("F jS, Y", $row['end'])."<br><span class='badge'>".formatDate("g:i A", $row['end'])."</span>";
+											$end = formatDate("F jS, Y", $row['end'])."<br><span>".formatDate("g:i A", $row['end'])."</span>";
 											if($row['end'] == "-1") {
 												$end = $lang['error_not_evaluated'];
 											}
@@ -108,13 +109,13 @@ if(isset($_GET['user'])) {
 												if(mysqli_num_rows(mysqli_query($con, "SELECT * FROM `".$info['table']."` WHERE uuid='".$row['uuid']."' AND start='".$row['start']."'")) > 0 && ($row['end'] == "-1" || (microtime(true) / 1000) < $row['end'])) {
 													$status = $lang['active'];
 													if(($row['punishmentType'] == 'BAN' || ($info['ip-bans'] == true && $row['punishmentType'] == 'IP_BAN')) && !isset($banned)) {
-														$banned = "<small><br><br><span class='badge'>".$lang['permanently_banned']."</span></small>";
+														$banned = "<small><br><br><span>".$lang['permanently_banned']."</span></small>";
 													} elseif($row['punishmentType'] == 'TEMP_BAN' && !isset($banned)) {
-														$banned = "<small><br><br><span class='badge'>".$lang['until'].formatDate("F jS, Y", $row['end'])." at ".formatDate("g:i A", $row['end'])."</span></small>";
+														$banned = "<small><br><br><span>".$lang['until'].formatDate("F jS, Y", $row['end'])." at ".formatDate("g:i A", $row['end'])."</span></small>";
 													}
 												}
 											}
-											echo "<tr><td>".$row['reason']."</td><td>".($info['skulls'] == true ? "<img src='https://crafatar.com/renders/head/".json_decode(file_get_contents("https://www.theartex.net/cloud/api/minecraft/?sec=uuid&username=".$row['operator']),true)['data']['uuid']."?scale=2&default=MHF_Steve&overlay' alt='".$row['operator']."'>" : "").$row['operator']."</td><td>".formatDate("F jS, Y", $row['start'])."<br><span class='badge'>".formatDate("g:i A", $row['start'])."</span></td><td>".$end."</td><td>".$lang[strtolower($row['punishmentType'])]."</td><td>".$status."</td></tr>";
+											echo "<tr><td>".$row['reason']."</td><td>".($info['skulls'] == true ? "<img src='https://crafatar.com/renders/head/".json_decode(file_get_contents("https://www.theartex.net/cloud/api/minecraft/?sec=uuid&username=".$row['operator']),true)['data']['uuid']."?scale=2&default=MHF_Steve&overlay' alt='".$row['operator']."'>" : "").$row['operator']."</td><td>".formatDate("F jS, Y", $row['start'])."<br><span>".formatDate("g:i A", $row['start'])."</span></td><td>".$end."</td><td>".$lang[strtolower($row['punishmentType'])]."</td><td>".$status."</td></tr>";
 										}
 									}
 									?>
@@ -159,18 +160,19 @@ if(isset($_GET['user'])) {
 							</div>
 						</div>
 					</div>
-					<div class="col-md-4 col-sm-12 text-center">
-						<h2>
-							<?php echo (isset($banned) ? htmlspecialchars($_GET['user']).$banned : htmlspecialchars($_GET['user'])."<small><br><br><span class='badge'>".$lang['not_banned']."</span></small>"); ?>
-						</h2>
-						<br>
-						<img src="https://crafatar.com/renders/body/<?php echo $json['data']['uuid']; ?>" alt="Skin Profile"></img>
-					</div>
-				</div>
-			</div>
 		</div>
-		<script type="text/javascript" src="../data/js/jquery-3.1.1.min.js"></script>
-		<script type="text/javascript" src="../data/js/bootstrap.min.js"></script>
-		<script type="text/javascript" src="../data/js/chart.bundle.min.js"></script>
+
+		<script
+			src="https://code.jquery.com/jquery-3.2.1.js"
+			integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+			crossorigin="anonymous"></script>
+
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.js"></script>
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.3/angular-animate.js"></script>
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-materialize/0.2.2/angular-materialize.js"></script>
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/js/materialize.min.js"></script>
 	</body>
 </html>
