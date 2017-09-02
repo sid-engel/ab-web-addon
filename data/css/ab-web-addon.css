@@ -9,3 +9,7 @@
 	color: white;
 	text-align: center;
 }
+
+.pagination li.active {
+		 background-color: #212121;
+	 }

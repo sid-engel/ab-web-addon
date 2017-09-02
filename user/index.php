@@ -16,11 +16,13 @@ if(isset($_GET['user'])) {
 		<title><?php echo $lang['title']; ?> - <?php echo htmlspecialchars($_GET['user']); ?></title>
 		<link rel="shortcut icon" href="../data/img/icon.png" type="image/x-icon">
 		<link rel="icon" href="../data/img/icon.png" type="image/x-icon">
+		<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+
+		<!-- Stylesheets -->
 		<link rel="stylesheet" href="../data/css/ab-web-addon.css">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/css/materialize.min.css">
 		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 		<link rel="stylesheet" href="../data/css/ab-web-addon.css">
-		<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
 	</head>
 	<body>
 		<div class="navbar-fixed">
