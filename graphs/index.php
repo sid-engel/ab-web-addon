@@ -14,6 +14,7 @@ require("../database.php");
 		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 		<link rel="stylesheet" href="../data/css/ab-web-addon.css">
 	</head>
+
 	<body>
 		<div class="navbar-fixed">
 		<nav class="grey darken-4">
@@ -34,10 +35,12 @@ require("../database.php");
 		    <li><a href="https://www.spigotmc.org/resources/advancedban.8695/">AdvancedBan</a></li>
 </ul>
 </div>
+
 <div class="header container-fluid">
 		<h1 style="margin: 0px;"><br><?php echo $lang['title']; ?></h1>
 		<h5 style="padding-bottom: 2%;"><?php echo $lang['description']; ?></h5>
 </div>
+
 <div class="container" style="padding-top: 2%;">
 				<p>
 					<?php
@@ -51,6 +54,7 @@ require("../database.php");
 					?>
 				</p>
 </div>
+
 <div class="container">
 	<form method="get" action="../user/">
 		<div class="input-group">
@@ -59,6 +63,7 @@ require("../database.php");
 		</div>
 	</form>
 </div>
+
 			<div class="container" style="padding-bottom: 2%;">
 				<div class="chart-container">
 					<canvas id="chart"></canvas>
@@ -66,19 +71,15 @@ require("../database.php");
 			</div>
 		</div>
 
+		<!-- JS Linking -->
 		<script
 			src="https://code.jquery.com/jquery-3.2.1.js"
 			integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
 			crossorigin="anonymous"></script>
-
 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.js"></script>
-
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.3/angular-animate.js"></script>
-
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-materialize/0.2.2/angular-materialize.js"></script>
-
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/js/materialize.min.js"></script>
-
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.js"></script>
 		<script>
 		var myChart = new Chart($("#chart"), {
